@@ -1,0 +1,4 @@
+---
+
+- name: Install mtail
+  apt: name=mtail state=latest

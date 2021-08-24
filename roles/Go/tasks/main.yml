@@ -1,0 +1,4 @@
+---
+
+- name: Install GO
+  apt: name=gccgo-go state=latest

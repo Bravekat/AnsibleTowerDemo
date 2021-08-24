@@ -1,0 +1,42 @@
+---
+
+- name: Install PHP Dependencies
+  apt:
+    pkg:
+      - python3-software-properties
+      - software-properties-common
+    state: latest
+  
+- name: Add OndreJ PHP Repo
+  raw: LC_ALL=en_us.UTF-8 add-apt-repository ppa:ondrej/php -y
+
+- name: Update Apt Cache
+  apt: update_cache=yes
+
+- name: Install PHP 7.4
+  apt:
+    pkg:
+      - php7.4
+      - libapache2-mod-php7.4
+      - php7.4-mysql
+      - php7.4-curl
+      - php7.4-json
+      - php7.4-zip
+      - mcrypt
+      - php-mbstring
+      - php-xml
+    state: latest
+    
+- name: Enable MCrypt Mod
+  raw: phpenmod mcrypt
+    
+- name: Restart Apache2
+  ansible.builtin.command: echo "this task will restart the web services"
+  notify: "restart web services"
+  
+#- name: Create PHP Info File
+#  lineinfile: dest=/var/www/html/phpinfo.php
+#    regexp='^'
+#    line='<?php phpinfo(); \n?>'
+#    create=true
+#    state=present

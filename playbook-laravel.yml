@@ -1,0 +1,14 @@
+---
+
+- name: Laravel
+  hosts: Servers
+  become: yes
+  roles:
+    - {name: general, tags: general}
+#    - {name: apache, tags: apache}
+#    - {name: php, tags: php}
+#    - {name: curl, tags: curl}
+#    - {name: git, tags: git}
+#    - {name: composer, tags: composer}
+#    - {name: laravel, tags: laravel}
+#    - {name: mysql, tags: mysql}

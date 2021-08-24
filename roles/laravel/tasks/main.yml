@@ -1,0 +1,9 @@
+---
+
+- name: Add laravel Installer
+  raw: composer global require laravel/installer
+  become: yes
+  become_user: vagrant
+  
+- name: Add Laravel to Path
+  lineinfile: dest={{home_directory}}/.bashrc regexp="^export PATH\=\{{home_directory}}\/.config\/composer\/vendor\/bin" line="export PATH={{home_directory}}/.config/composer/vendor/bin:$PATH"

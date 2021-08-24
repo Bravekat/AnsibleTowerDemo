@@ -1,0 +1,3 @@
+mysql_root_password: r00tadmin
+
+home_directory: /home/vagrant

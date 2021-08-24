@@ -1,0 +1,4 @@
+---
+
+- name: Install Make
+  apt: name=make state=latest
